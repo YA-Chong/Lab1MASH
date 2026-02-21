@@ -257,6 +257,26 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &133552613 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3800020603459341775, guid: 837c0624c03867b4c8f5979693b98c71, type: 3}
+  m_PrefabInstance: {fileID: 8985357656915687453}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &133552618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133552613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a451ce77363a2b4eb38b5f2036c5842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  baseSpeed: 2
+  carryCount: 0
+  maxCarry: 3
 --- !u!1 &207890241
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +495,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!224 &370580350
 RectTransform:
@@ -955,7 +975,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 304, y: -38.320007}
+  m_AnchoredPosition: {x: 304, y: -38.32007}
   m_SizeDelta: {x: 282.98364, y: 47.35498}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &601978359
@@ -1230,7 +1250,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -166, y: -38.320007}
+  m_AnchoredPosition: {x: -166, y: -38.32007}
   m_SizeDelta: {x: 295.9309, y: 51.713074}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &850369524
@@ -3971,6 +3991,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: helicopter
       objectReference: {fileID: 0}
+    - target: {fileID: 7998730501910698104, guid: 837c0624c03867b4c8f5979693b98c71, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998730501910698104, guid: 837c0624c03867b4c8f5979693b98c71, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8050344852066813767, guid: 837c0624c03867b4c8f5979693b98c71, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.559
@@ -4014,7 +4042,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3800020603459341775, guid: 837c0624c03867b4c8f5979693b98c71, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 133552618}
   m_SourcePrefab: {fileID: 100100000, guid: 837c0624c03867b4c8f5979693b98c71, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
