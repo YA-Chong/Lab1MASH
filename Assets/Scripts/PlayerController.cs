@@ -57,8 +57,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            UIManager.Instance.ShowRestartPopup(true);
-            GameManager.Instance.TogglePause(true); // 暂停倒计时
+            UIManager.Instance.OpenRestartMenu();
         }
     }
 
@@ -116,19 +115,24 @@ public class PlayerController : MonoBehaviour
         {
             carryCount++;
             Destroy(other.gameObject);
+            // 播放拾取音效
+            SoundManager.Instance.PlayPick();
         }
 
         // 2. 碰到医院
         if (other.CompareTag("Hospital") && carryCount > 0)
         {
-            // 向 GameManager 汇报救人数
             GameManager.Instance.AddSavedSoldiers(carryCount);
             carryCount = 0;
+            // 播放放下音效
+            SoundManager.Instance.PlayDrop();
         }
 
         // 3. 碰到树（坠机失败） [cite: 22, 56]
         if (other.CompareTag("Tree"))
         {
+            // 播放死亡音效
+            SoundManager.Instance.PlayDie();
             GameManager.Instance.GameOver();
         }
     }

@@ -63,7 +63,7 @@ public class WoundedSpawner : MonoBehaviour
         spawnedSoldiers.Clear();
     }
 
-    private void OnDrawGizmosSelected()
+    /* private void OnDrawGizmosSelected()
     {
         // 在 Scene 窗口画出刷新范围，方便你调整
         Gizmos.color = Color.red;
@@ -74,5 +74,5 @@ public class WoundedSpawner : MonoBehaviour
         Vector3 center = (bl + tr) / 2;
         Vector3 size = new Vector3(tr.x - bl.x - 2f, tr.y - bl.y - 2f, 0); // 这里的 2f 对应代码里的左右/上下边距
         Gizmos.DrawWireCube(center, size);
-    }
+    } */
 }

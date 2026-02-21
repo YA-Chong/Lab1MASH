@@ -196,7 +196,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.28, y: 0.3}
+  m_Size: {x: 0.17, y: 0.28}
   m_EdgeRadius: 0
 --- !u!212 &52228051
 SpriteRenderer:
@@ -257,26 +257,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &133552613 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3800020603459341775, guid: 837c0624c03867b4c8f5979693b98c71, type: 3}
+--- !u!114 &133552623 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6824797181385494071, guid: 837c0624c03867b4c8f5979693b98c71, type: 3}
   m_PrefabInstance: {fileID: 8985357656915687453}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &133552618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 133552613}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a451ce77363a2b4eb38b5f2036c5842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  baseSpeed: 2
-  carryCount: 0
-  maxCarry: 3
 --- !u!1 &207890241
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +345,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.28, y: 0.3}
+  m_Size: {x: 0.17, y: 0.28}
   m_EdgeRadius: 0
 --- !u!212 &207890244
 SpriteRenderer:
@@ -639,8 +630,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5c71c0f47c3f341a06276ad9b71334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  gameTime: 60
+  totalSoldiersToSave: 8
+  currentTime: 0
+  currentTotalSaved: 0
+  isGameActive: 0
   spawner: {fileID: 425634660}
-  player: {fileID: 133552618}
+  player: {fileID: 133552623}
 --- !u!1 &497395024
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,7 +747,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.28, y: 0.3}
+  m_Size: {x: 0.17, y: 0.28}
   m_EdgeRadius: 0
 --- !u!212 &511510163
 SpriteRenderer:
@@ -1575,6 +1571,151 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918849905}
   m_CullTransparentMesh: 1
+--- !u!1 &981874348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 981874351}
+  - component: {fileID: 981874350}
+  - component: {fileID: 981874349}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &981874349
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981874348}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &981874350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981874348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24fc29778a52c848911d23292c79144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundManager
+  pickSound: {fileID: 8300000, guid: c981c1108b6e7d74aa9207b8ba2f1488, type: 3}
+  dropSound: {fileID: 8300000, guid: e2f57959796f51e449296e5195aa269c, type: 3}
+  dieSound: {fileID: 8300000, guid: 868f34448c51e2a4fac4e4af7cce0ae4, type: 3}
+--- !u!4 &981874351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981874348}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.95591, y: -0.5532, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1033785361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,7 +1935,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1091870363}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 425634662}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: StartNewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1091870363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1910,7 +2063,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.28, y: 0.3}
+  m_Size: {x: 0.17, y: 0.28}
   m_EdgeRadius: 0
 --- !u!212 &1112247713
 SpriteRenderer:
@@ -2818,7 +2971,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1524906006}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 425634662}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: TogglePause
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1657061554}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1524906006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2934,7 +3111,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.28, y: 0.3}
+  m_Size: {x: 0.17, y: 0.28}
   m_EdgeRadius: 0
 --- !u!212 &1527307932
 SpriteRenderer:
@@ -3077,7 +3254,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1538795333}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 425634662}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: StartNewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1538795333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3198,7 +3387,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1555863765}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 425634662}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: StartNewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1555863765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3830,8 +4031,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 370580351}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ShowRestartPopup
-        m_Mode: 6
+        m_MethodName: OpenRestartMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4084,6 +4285,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1650376952750784764, guid: 837c0624c03867b4c8f5979693b98c71, type: 3}
+      propertyPath: m_Size.x
+      value: 0.1684488
+      objectReference: {fileID: 0}
+    - target: {fileID: 1650376952750784764, guid: 837c0624c03867b4c8f5979693b98c71, type: 3}
+      propertyPath: m_Size.y
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1650376952750784764, guid: 837c0624c03867b4c8f5979693b98c71, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.015039742
+      objectReference: {fileID: 0}
     - target: {fileID: 3800020603459341775, guid: 837c0624c03867b4c8f5979693b98c71, type: 3}
       propertyPath: m_Name
       value: helicopter
@@ -4143,10 +4356,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3800020603459341775, guid: 837c0624c03867b4c8f5979693b98c71, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 133552618}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 837c0624c03867b4c8f5979693b98c71, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -4160,3 +4370,4 @@ SceneRoots:
   - {fileID: 370580350}
   - {fileID: 1601404991}
   - {fileID: 425634661}
+  - {fileID: 981874351}

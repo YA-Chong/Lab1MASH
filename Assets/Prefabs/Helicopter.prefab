@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6749000544259082291}
   - component: {fileID: 1650376952750784764}
   - component: {fileID: 7998730501910698104}
+  - component: {fileID: 6824797181385494071}
   m_Layer: 0
   m_Name: Helicopter
   m_TagString: Untagged
@@ -127,7 +128,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0040771365, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -137,7 +138,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.32, y: 0.2}
+  m_Size: {x: 0.21807086, y: 0.2}
   m_EdgeRadius: 0
 --- !u!50 &7998730501910698104
 Rigidbody2D:
@@ -166,3 +167,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6824797181385494071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3800020603459341775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a451ce77363a2b4eb38b5f2036c5842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  baseSpeed: 2
+  carryCount: 0
+  maxCarry: 3
