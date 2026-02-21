@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [Header("游戏配置")]
-    public float gameTime = 60f; // 初始倒计时 [cite: 49]
+    public float gameTime = 30f; // 初始倒计时 [cite: 49]
     public int totalSoldiersToSave = 8; // 这一局需要救的人数 [cite: 30]
 
     [Header("实时状态")]
@@ -77,11 +77,27 @@ public class GameManager : MonoBehaviour
         Debug.Log("游戏开始！士兵已刷新。");
     }
 
+    // 1. 新增一个强制刷新 UI 的私有方法，避免代码重复
+    private void ForceUpdateUI()
+    {
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.UpdateHUD(
+                currentTime,
+                player.carryCount,
+                player.maxCarry,
+                currentTotalSaved
+            );
+        }
+    }
+
     public void AddSavedSoldiers(int amount)
     {
         currentTotalSaved += amount;
 
-        // 判定胜利条件 [cite: 51, 54]
+        // 【关键】在判定胜负前，强制刷新一次 UI，确保玩家看到数字变了
+        ForceUpdateUI();
+
         if (currentTotalSaved >= totalSoldiersToSave)
         {
             WinGame();
@@ -90,16 +106,18 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
+        ForceUpdateUI(); // 再次确保胜利时刻的数据是准确的
         isGameActive = false;
-        Time.timeScale = 0; // 停止游戏
-        UIManager.Instance.ShowWin(true); // 显示胜利界面
+        Time.timeScale = 0;
+        UIManager.Instance.ShowWin(true);
     }
 
     public void GameOver()
     {
+        ForceUpdateUI(); // 确保失败（比如撞树）瞬间的负重和计数显示正确
         isGameActive = false;
         Time.timeScale = 0;
-        UIManager.Instance.ShowGameOver(true); // 显示失败界面
+        UIManager.Instance.ShowGameOver(true);
     }
 
     // 弹窗暂停逻辑

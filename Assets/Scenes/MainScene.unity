@@ -630,7 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5c71c0f47c3f341a06276ad9b71334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  gameTime: 60
+  gameTime: 30
   totalSoldiersToSave: 8
   currentTime: 0
   currentTotalSaved: 0

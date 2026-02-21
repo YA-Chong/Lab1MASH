@@ -122,9 +122,16 @@ public class PlayerController : MonoBehaviour
         // 2. 碰到医院
         if (other.CompareTag("Hospital") && carryCount > 0)
         {
-            GameManager.Instance.AddSavedSoldiers(carryCount);
+            // 先把要交的人数存下来
+            int deliveredAmount = carryCount;
+
+            // 步骤 A：先清空直升机自身的负重（确保数据先更新）
             carryCount = 0;
-            // 播放放下音效
+
+            // 步骤 B：再把人数报给 GameManager 判定胜负
+            GameManager.Instance.AddSavedSoldiers(deliveredAmount);
+
+            // 播放音效
             SoundManager.Instance.PlayDrop();
         }
 
