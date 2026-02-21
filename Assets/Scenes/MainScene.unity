@@ -130,9 +130,9 @@ GameObject:
   - component: {fileID: 52228049}
   - component: {fileID: 52228051}
   - component: {fileID: 52228050}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GDSLAB1_3
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,9 +288,9 @@ GameObject:
   - component: {fileID: 207890242}
   - component: {fileID: 207890244}
   - component: {fileID: 207890243}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GDSLAB1_3 (2)
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 370580349}
   - component: {fileID: 370580348}
   - component: {fileID: 370580347}
+  - component: {fileID: 370580351}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -520,6 +521,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &370580351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370580346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035b33a5f2639db4b98e0dd3ee765787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  timerText: {fileID: 2113821552}
+  carryText: {fileID: 850369524}
+  hospitalText: {fileID: 601978359}
+  winPanel: {fileID: 527549902}
+  gameOverPanel: {fileID: 1556143114}
+  restartPopup: {fileID: 1657061554}
 --- !u!1 &382770038
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +575,72 @@ Transform:
   - {fileID: 1527307930}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &425634659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 425634661}
+  - component: {fileID: 425634660}
+  - component: {fileID: 425634662}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &425634660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425634659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: affcf82b7d6fcb14f85091dab6e48053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WoundedSpawner
+  soldierPrefab: {fileID: 8120184895255653353, guid: 36d8c1754d2a5b34ba428c04e2afd3b3, type: 3}
+  spawnCount: 8
+  avoidRadius: 0.2
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  edgeMargin: 0.5
+--- !u!4 &425634661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425634659}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 971.77423, y: 651.69867, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &425634662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425634659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5c71c0f47c3f341a06276ad9b71334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  spawner: {fileID: 425634660}
+  player: {fileID: 133552618}
 --- !u!1 &497395024
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,9 +685,9 @@ GameObject:
   - component: {fileID: 511510161}
   - component: {fileID: 511510163}
   - component: {fileID: 511510162}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GDSLAB1_3 (1)
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1089,9 +1174,9 @@ GameObject:
   - component: {fileID: 819386251}
   - component: {fileID: 819386253}
   - component: {fileID: 819386252}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GDSLAB1_1
-  m_TagString: Untagged
+  m_TagString: Hospital
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1759,9 +1844,9 @@ GameObject:
   - component: {fileID: 1112247711}
   - component: {fileID: 1112247713}
   - component: {fileID: 1112247712}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GDSLAB1_3 (3)
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1897,9 +1982,9 @@ GameObject:
   - component: {fileID: 1181294215}
   - component: {fileID: 1181294217}
   - component: {fileID: 1181294216}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GDSLAB1_0
-  m_TagString: Untagged
+  m_TagString: Hospital
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2783,9 +2868,9 @@ GameObject:
   - component: {fileID: 1527307930}
   - component: {fileID: 1527307932}
   - component: {fileID: 1527307931}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GDSLAB1_3 (4)
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3742,7 +3827,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2040256067}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 370580351}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ShowRestartPopup
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &2040256067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3991,6 +4088,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: helicopter
       objectReference: {fileID: 0}
+    - target: {fileID: 3800020603459341775, guid: 837c0624c03867b4c8f5979693b98c71, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7998730501910698104, guid: 837c0624c03867b4c8f5979693b98c71, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -4058,3 +4159,4 @@ SceneRoots:
   - {fileID: 4155953439709545524}
   - {fileID: 370580350}
   - {fileID: 1601404991}
+  - {fileID: 425634661}

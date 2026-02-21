@@ -13,15 +13,27 @@ public class PlayerController : MonoBehaviour
     private Vector3 startPosition;
 
     // 屏幕边界数值（自动计算）
-    private float minX, maxX, minY, maxY;
+    private float minX,
+        maxX,
+        minY,
+        maxY;
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
 
-        // 记录初始位置，方便重开时瞬移回来
+        // 立即记录初始位置，防止被重置为 (0,0,0)
         startPosition = transform.position;
+    }
+
+    void Start()
+    {
+        /* rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+
+        // 记录初始位置，方便重开时瞬移回来
+        startPosition = transform.position; */
         // 自动计算当前摄像机能看到的边界
         CalculateBoundaries();
     }
@@ -42,6 +54,12 @@ public class PlayerController : MonoBehaviour
         {
             sr.flipX = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            UIManager.Instance.ShowRestartPopup(true);
+            GameManager.Instance.TogglePause(true); // 暂停倒计时
+        }
     }
 
     void CalculateBoundaries()
@@ -60,6 +78,7 @@ public class PlayerController : MonoBehaviour
         minY = bottomLeft.y + spriteHalfHeight;
         maxY = topRight.y - spriteHalfHeight;
     }
+
     // 在每一帧移动完成后，强行修正坐标，实现“空气墙”
     void LateUpdate()
     {
@@ -83,5 +102,34 @@ public class PlayerController : MonoBehaviour
         carryCount = 0;
         rb.linearVelocity = Vector2.zero;
         sr.flipX = false; // 恢复初始朝右
+    }
+
+    // 触发检测：直升机碰到 Trigger 类型的物体时自动执行
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!GameManager.Instance.isGameActive)
+            return; // 游戏结束了就不再处理
+
+        // 1. 碰到伤员
+        if (other.CompareTag("Soldier") && carryCount < maxCarry)
+        {
+            carryCount++;
+            Destroy(other.gameObject);
+        }
+
+        // 2. 碰到医院
+        if (other.CompareTag("Hospital") && carryCount > 0)
+        {
+            // 向 GameManager 汇报救人数
+            GameManager.Instance.AddSavedSoldiers(carryCount);
+            carryCount = 0;
+        }
+
+        // 3. 碰到树（坠机失败） [cite: 22, 56]
+        if (other.CompareTag("Tree"))
+        {
+            GameManager.Instance.GameOver();
+        }
     }
 }
