@@ -598,7 +598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WoundedSpawner
   soldierPrefab: {fileID: 8120184895255653353, guid: 36d8c1754d2a5b34ba428c04e2afd3b3, type: 3}
   spawnCount: 8
-  avoidRadius: 0.2
+  avoidRadius: 0.3
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -630,7 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5c71c0f47c3f341a06276ad9b71334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  gameTime: 30
+  gameTime: 35
   totalSoldiersToSave: 8
   currentTime: 0
   currentTotalSaved: 0
